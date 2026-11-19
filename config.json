@@ -1,0 +1,75 @@
+{
+    "student_name": "Alireza Jahedi",
+    "student_id": "40435338",
+    
+    "data": {
+        "train_data": "HW1_data/train_clean.txt",
+        "dev_data": "HW1_data/dev_noisy.txt",
+        "dev_clean": "HW1_data/dev_clean.txt",
+        "test_data": "HW1_data/test_noisy.txt",
+        "output_dir": "results/",
+        "extra_wordlist": null
+    },
+    
+    "language_model": {
+        "ngram_order": 2,
+        "smoothing": "kneser_ney",
+        "smoothing_k": 0.001,
+        "unk_threshold": 1,
+        "lowercase": true,
+        "use_boundaries": true,
+        "start_token": "<s>",
+        "end_token": "</s>"
+    },
+    
+    "candidate_generation": {
+        "min_ed1_length": 2,
+        "min_ed2_length": 5,
+        "max_ed1_candidates": 30,
+        "max_ed2_candidates": 10,
+        "max_total_candidates": 50,
+        "use_keyboard": true,
+        "use_transposition": true,
+        "use_confusion_rules": true,
+        "include_case_variants": true,
+        "include_misspellings": true,
+        "include_ed1": true,
+        "include_ed2": false,
+        
+        "enable_real_word_check": false,
+        "real_word_context_gate": -18.0,
+        "real_word_min_length": 4,
+        "real_word_prior_guard": 0.0,
+        "real_word_abstain_threshold": 4.0,
+        
+        "enable_adaptive_threshold": true,
+        "adaptive_scale": 0.75,
+        "adaptive_common_word_freq": 0.0008,
+        "adaptive_min_threshold": 0.2
+    },
+    
+    "scoring": {
+        "context_weight": 0.5,
+        "prior_weight": 0.2,
+        "edit_weight": 0.3,
+        "edit_lambda": 0.10
+    },
+    
+    "system": {
+        "abstain_threshold": 0.3,
+        "preserve_case": true,
+        "verbose": false,
+        "random_seed": 42
+    },
+    
+    "evaluation": {
+        "threshold_tuning_range": [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 5.0],
+        "output_files": {
+            "dev_predictions": "dev_predictions.csv",
+            "test_predictions": "test_predictions.csv",
+            "dev_metrics": "dev_metrics.json",
+            "summary": "summary.json",
+            "trace": "trace.jsonl"
+        }
+    }
+}

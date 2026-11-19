@@ -1,0 +1,17 @@
+{
+  "student_name": "Alireza Jahedi",
+  "student_id": "40435338",
+  "ngram_order": 2,
+  "smoothing": "kneser_ney",
+  "tokenization": "whitespace",
+  "case_handling": "lowercase",
+  "unk_threshold": 1,
+  "abstain_threshold": 0.3,
+  "candidate_strategy": "edit_distance_1 + edit_distance_2 + dictionary + confusion_rules",
+  "score_weights": {
+    "context": 0.5,
+    "prior": 0.2,
+    "edit_penalty": 0.3
+  },
+  "random_seed": 42
+}
